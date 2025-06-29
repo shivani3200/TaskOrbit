@@ -1,0 +1,186 @@
+.sign-up-container{
+  height: 50rem;
+  width: 100%;
+background-color: #fceeee;
+}
+.sign-up-card{
+  height: 30rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  padding: 10px;
+  border: 0px solid;
+
+}
+.input-container{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 80%;
+  /* margin-bottom: 5rem; */
+  margin: 1rem;
+}
+.inputs{
+  display: flex;
+  border: none;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+  margin: 4px;
+  /* border: 1px solid red; */
+}
+.input-style{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  font-weight: 600;
+  color: rgb(181, 178, 178);
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border-bottom: 1px solid rgb(139, 137, 137);
+  transition: border-color 0.3s ease;
+  color: #000;
+}
+/* Underline on hover/focus */
+.input-style:hover,
+.input-style:focus {
+  border-bottom: 2px solid #A0522D; /* Light brown */
+}
+
+.input-style::placeholder {
+  color: #888;        /* Gray placeholder */
+  font-weight: 600;   /* Bold placeholder */
+}
+/* .button-sign{
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 0 0 ;
+}
+ .button-sign button {  
+  padding: 0.1rem 1rem; 
+  font-size: 1rem; 
+  font-weight: 600; 
+  color: #fff;
+  background: linear-gradient(135deg, #d6a678, #f2d2b6); 
+  border: none;
+  border-radius: 4rem; 
+  box-shadow: 0 1px 5px rgba(16, 9, 3, 0.4);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+.button-sign button:hover {
+  background: linear-gradient(135deg,#c98c5e, #eecbb0);
+  transform: translateY(3px)scale(1.04);
+  box-shadow: 0 10px 20px rgba(214, 166, 120, 0.5);
+  box-shadow: none;
+  outline: 2px solid #e7cdb5;
+  outline-offset: 3px;
+}
+.button-sign button:active{
+  transform: scale(0.97);
+} */
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  margin: 1.5rem 0 0 0 ;
+  padding: 0.1rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 50%;
+  margin-left: 20%;
+  align-items: center;
+  color: #fff;
+  border: none;
+  border-radius: 4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 5px rgba(16, 9, 3, 0.4);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Brown Theme */
+.btn.brown {
+  color: black;
+  background: 
+    linear-gradient(#fff, #fff) padding-box,              /* button fill */
+    linear-gradient(135deg, #512c38, #daa6b6) border-box; /* border */
+  border: 2px solid transparent;
+  border-radius: 4rem;
+  padding: 0.1rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn.brown:hover {
+/* background: linear-gradient(135deg, #5c2437, #9d566e); */
+  transform: translateY(3px) scale(1.04);
+outline: 2px solid #eecfd6;
+  outline-offset: 3px;
+}
+
+/* Purple Theme */
+.btn.purple {
+background: linear-gradient(135deg, #4b2e59, #a974bf);
+}
+.btn.purple:hover {
+background: linear-gradient(135deg, #3c214a, #9264b0);
+  transform: translateY(3px) scale(1.04);
+  outline: 2px solid #dcd0f8;
+  outline-offset: 3px;
+}
+
+.signin-redirect{
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.already-text{
+  font-size: 0.775rem;
+  color: #555;
+  margin-top: 4px;
+}
+.signin-link{
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #2563eb;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.signin-link:hover{
+  color: #a61d1d;
+  transform: scale(1.05);
+}
+
+
+.video-style {
+  width: 60%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.video-style:hover {
+  transform: scale(1.03);
+}
+.errors-alert{
+  color: #f30808;
+  font-size: 0.8rem;
+  margin-top: -0.8rem;
+  margin-left: 2.5rem;
+}

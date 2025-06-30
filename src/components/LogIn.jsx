@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "./SignUp.css";
+import '../cssFolder/SignUp.css';
 import { MdOutlineDriveFileRenameOutline, MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
-
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase"; // Assuming your firebase.js file exports 'auth'
 const isSignIn = true;
 
 const LogIn = () => {
@@ -36,10 +37,19 @@ const LogIn = () => {
       );
       const user = userCredentials.user;
       console.log("User signed in:", user);
+
+      // if (!user.emailVerified) {
+      //   setError((prev) => ({
+      //     ...prev,
+      //     email:
+      //       "Please verify your email address before logging in. Check your inbox for a verification link.",
+      //   }));
+      //   return;
+      // }
       // Firebase automatically manages the user's session (tokens are handled internally).
       // You typically don't need to manually store tokens in localStorage here.
       // Redirect to a protected route (e.g., a dashboard page) after successful login
-      navigate('/dashboard'); // <--- IMPORTANT: Create this '/dashboard' route in App.jsx
+      navigate("/dashboard"); // <--- IMPORTANT: Create this '/dashboard' route in App.jsx
     } catch (firebaseError) {
       console.error(
         "Firebase LogIn Error:",
@@ -94,8 +104,7 @@ const LogIn = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </label>
-                    {error && <p className="text-red-600 text-xs">{error}</p>}
-
+            {error && <p className="text-red-600 text-xs">{error}</p>}
 
             {/* Password */}
             <label className="inputs" htmlFor="password">
@@ -111,8 +120,7 @@ const LogIn = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
-                    {error && <p className="text-red-600 text-xs">{error}</p>}
-
+            {error && <p className="text-red-600 text-xs">{error}</p>}
           </div>
 
           {/* Sign Up Button */}
@@ -120,9 +128,7 @@ const LogIn = () => {
             <button type="submit" disabled={isLoading}>
               Sign in
             </button>
-            
           </div>
-          
         </form>
 
         {/* Redirect to Sign In */}

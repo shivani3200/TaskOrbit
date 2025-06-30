@@ -25,5 +25,6 @@ const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
 // Export Firebase services that you'll use
-export const auth = getAuth(app); // <-- We are defining and exporting 'auth' here
-export const db = getFirestore(app); // <-- We are defining and exporting 'db' here
+ const auth = getAuth(app); // <-- We are defining and exporting 'auth' here
+const db = getFirestore(app); // <-- We are defining and exporting 'db' here
+export { auth, db };

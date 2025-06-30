@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./SignUp.css";
+import '../cssFolder/SignUp.css';
 import { MdOutlineDriveFileRenameOutline, MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
@@ -26,17 +26,17 @@ const SignUp = () => {
   // submit handle
   const handleSubmit = async (e) => {
     e.preventDefault(); //Prevents full page reload
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-
-    // Send verification email
-    await sendEmailVerification(user);
-
-    setSuccessMessage('Account created successfully! A verification email has been sent to your inbox. Please verify your email to log in.');
-    setEmail('');
-    setPassword('');
-
+    
     console.log("Form submitted with:", { email, password });
+    // const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
+    // const user = userCredentials.user;
+
+        // Send verification email
+    //     await sendEmailVerification(user);
+
+    //     setSuccessMessage('Account created successfully! A verification email has been sent to your inbox. Please verify your email to log in.')
+    //     setEmail('');
+    // setPassword('');
 
     setError({ name: "", email: "", password: "" });
     setIsLoading(true);
@@ -48,9 +48,20 @@ const SignUp = () => {
         email: !email ? "Email is required." : "",
         password: !password ? "Password is required." : "",
       });
+      
       setIsLoading(false);
       return;
     }
+    if (name.length < 3) {
+        setError((prev) => ({
+          ...prev,
+          name: "use at least 3 characters.",
+        }));
+        setIsLoading(false);
+        console.log("Error set: name too short."); // <--- ADD THIS LOG
+  
+        return;
+      }
     if (password.length < 6) {
       setError((prev) => ({
         ...prev,
@@ -59,16 +70,6 @@ const SignUp = () => {
 
       setIsLoading(false);
       console.log("Error set: Password too short."); // <--- ADD THIS LOG
-
-      return;
-    }
-    if (name.length < 3) {
-      setError((prev) => ({
-        ...prev,
-        name: "use at least 3 characters.",
-      }));
-      setIsLoading(false);
-      console.log("Error set: name too short."); // <--- ADD THIS LOG
 
       return;
     }
@@ -183,7 +184,7 @@ const SignUp = () => {
             {error.password && (
               <p className="errors-alert">{error.password}</p>
             )}
-            .
+            
           </div>
 
           {/* Sign Up Button */}
